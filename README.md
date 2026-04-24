@@ -46,7 +46,7 @@ docker compose up -d
 Verificacion del Volumen Compartido:
 Al modificar el archivo index.html en la carpeta local, los cambios se reflejan de manera inmediata y simultánea en todos los nodos del clúster. Esto demuestra que ambos servidores leen de la misma fuente de datos, facilitando la actualización de contenido sin necesidad de reconstruir las imágenes de Docker.
 <img width="525" height="114" alt="Volumen compartido" src="https://github.com/user-attachments/assets/c06ff17c-3c7d-443c-a315-9956bc435ff3" />
-<img width="525" height="114" alt="Volumen compartido" src="https://github.com/user-attachments/assets/8c33c023-a6aa-424e-b128-65692d01cca9" />
+<img width="550" height="185" alt="Captura de pantalla 2026-04-24 162036" src="https://github.com/user-attachments/assets/670f0226-2ae8-4f44-9898-94f34fb9bd6b" />
 
 Verificacion Red Aislada:
 Al intentar acceder directamente a través de puertos que no sean el del Proxy (como el 8080), el sistema deniega la conexión. Esto confirma que la infraestructura está protegida y que solo el tráfico legítimo canalizado por el Proxy puede alcanzar los servidores internos.
