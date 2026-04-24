@@ -49,7 +49,7 @@ Al modificar el archivo index.html en la carpeta local, los cambios se reflejan 
 <img width="550" height="185" alt="Captura de pantalla 2026-04-24 162036" src="https://github.com/user-attachments/assets/670f0226-2ae8-4f44-9898-94f34fb9bd6b" />
 
 Verificacion Red Aislada:
-Al intentar acceder directamente a través de puertos que no sean el del Proxy (como el 8080), el sistema deniega la conexión. Esto confirma que la infraestructura está protegida y que solo el tráfico legítimo canalizado por el Proxy puede alcanzar los servidores internos. (En la parte superior se ve claramente que no hay fallos de ningun tipo, y que de mitad para abajo da fallos y esta en rojo por haber intentado acceder desde el puerto 80).
+Al intentar acceder directamente a través de puertos que no sean el del Proxy (como el 8080), el sistema deniega la conexión. Esto confirma que la infraestructura está protegida y que solo el tráfico legítimo canalizado por el Proxy puede alcanzar los servidores internos. (En la parte superior se ve claramente que no hay fallos de ningun tipo, y que de mitad para abajo da fallos y esta en rojo por haber intentado acceder desde el puerto 8080).
 <img width="630" height="499" alt="Red aislada" src="https://github.com/user-attachments/assets/537b563d-8b44-4947-944b-e510f29dd42d" />
 
 
