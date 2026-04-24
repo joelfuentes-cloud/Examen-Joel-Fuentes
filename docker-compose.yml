@@ -1,0 +1,41 @@
+services:
+  # El Proxy que da la cara al exterior
+  proxy-inverso:
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    networks:
+      - red_privada
+    depends_on:
+      - web1
+      - web2
+
+  # Primer Servidor Web
+  web1:
+    image: nginx:latest
+    volumes:
+      - web_content:/usr/share/nginx/html:ro
+    networks:
+      - red_privada
+
+  # Segundo Servidor Web
+  web2:
+    image: nginx:latest
+    volumes:
+      - web_content:/usr/share/nginx/html:ro
+    networks:
+      - red_privada
+
+networks:
+  red_privada:
+    driver: bridge
+
+volumes:
+  web_content:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: ${PWD}/html
