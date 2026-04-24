@@ -37,6 +37,27 @@ Asegúrate de tener la siguiente estructura:
 * `html/hola.png`
 
 ### 2. Despliegue
-Ejecuta el siguiente comando en tu terminal:
-```bash
+Ejecuta el siguiente comando en tu terminal, estando en el directorio del proyecto:
+
 docker compose up -d
+
+
+
+Verificacion del Volumen Compartido:
+Al modificar el archivo index.html en la carpeta local, los cambios se reflejan de manera inmediata y simultánea en todos los nodos del clúster. Esto demuestra que ambos servidores leen de la misma fuente de datos, facilitando la actualización de contenido sin necesidad de reconstruir las imágenes de Docker.
+<img width="525" height="114" alt="Volumen compartido" src="https://github.com/user-attachments/assets/c06ff17c-3c7d-443c-a315-9956bc435ff3" />
+<img width="525" height="114" alt="Volumen compartido" src="https://github.com/user-attachments/assets/8c33c023-a6aa-424e-b128-65692d01cca9" />
+
+Verificacion Red Aislada:
+Al intentar acceder directamente a través de puertos que no sean el del Proxy (como el 8080), el sistema deniega la conexión. Esto confirma que la infraestructura está protegida y que solo el tráfico legítimo canalizado por el Proxy puede alcanzar los servidores internos.
+<img width="630" height="499" alt="Red aislada" src="https://github.com/user-attachments/assets/537b563d-8b44-4947-944b-e510f29dd42d" />
+
+
+Verificacion Balanceo de carga:
+La verificación se realiza inspeccionando la cabecera personalizada X-Backend-Server inyectada por el Proxy. Al realizar peticiones sucesivas, se observa cómo el balanceador alterna el tráfico entre las IPs internas de los contenedores (por ejemplo, de la terminada en .2 a la .3), demostrando un reparto de carga equitativo.
+<img width="511" height="537" alt="Balanceo de carga" src="https://github.com/user-attachments/assets/d681c35b-4a20-4220-aab5-7111c761fe46" />
+
+
+Verificacion funcionamiento de Proxy:
+En esta prueba se verifica que el servidor que responde es efectivamente el Proxy (identificado como Nginx) y que este es capaz de servir no solo el código HTML, sino también los recursos estáticos como la imagen hola.png y el archivo de audio, actuando como un intermediario transparente.
+<img width="581" height="357" alt="Funcionamiento proxy" src="https://github.com/user-attachments/assets/65f93849-745d-4440-b416-a8cefa06904c" />
